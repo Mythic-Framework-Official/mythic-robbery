@@ -1,5 +1,11 @@
 _pickups = {}
 
+local _govjob = {
+	police = true,
+	ems = true,
+	government = true,
+}
+
 local _queues = {
 	{
 		id = "green_dongle",
@@ -87,7 +93,7 @@ function SetupQueues()
 						char = plyr:GetData("Character")
 						if char == nil then
 							plyr = nil
-						elseif plyr ~= nil and char ~= nil then
+						elseif plyr ~= nil and char ~= nil and not _govjob[plyr.onDuty] then
 							local states = char:GetData("States") or {}
 							if
 								_received[v.id][char:GetData("SID")]
