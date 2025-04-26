@@ -93,7 +93,7 @@ function SetupQueues()
 						char = plyr:GetData("Character")
 						if char == nil then
 							plyr = nil
-						elseif plyr ~= nil and char ~= nil and not _govjob[plyr.onDuty] then
+						elseif plyr ~= nil and char ~= nil and not _govjob[char.onDuty] then
 							local states = char:GetData("States") or {}
 							if
 								_received[v.id][char:GetData("SID")]
